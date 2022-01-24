@@ -13,25 +13,31 @@ console.log('js ok')
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 // dichiaro 5 numeri casuali che l'utente dovrà memorizzare e poi inserire
-let number1 = getRandomNumber(1, 100);
-let number2 = getRandomNumber(1, 100);
-let number3 = getRandomNumber(1, 100);
-let number4 = getRandomNumber(1, 100);
-let number5 = getRandomNumber(1, 100);
+// let number1 = getRandomNumber(1, 100);
+// let number2 = getRandomNumber(1, 100);
+// let number3 = getRandomNumber(1, 100);
+// let number4 = getRandomNumber(1, 100);
+// let number5 = getRandomNumber(1, 100);
 
 
-// dichiaro un array dove comprendo i 5 numeri che l'utente dovrà memorizzare e poi reinserire
-const listNumbers = [number1, number2, number3, number4, number5]
-console.log(listNumbers)
+// // dichiaro un array dove comprendo i 5 numeri che l'utente dovrà memorizzare e poi reinserire
+// const listNumbers = [number1, number2, number3, number4, number5]
+// console.log(listNumbers)
 
 
-// inserisco i numeri in un alert 
-alert(`questi sono i numeri che dovrai memorizzare: 
+// sostituisco i 5 numeri dichiarati a mano con una funzione che genera numeri casuali , applicando un controllo per vedere se il numero è ripetuto
+// dichiaro l'array vuoto dove inserire i numeri 
+const listNumbers = []
 
-${listNumbers}
+const getRandomNumbers = (listNumbers) => {
+    while (listNumbers.length < 5) {
+        const number = getRandomNumber(1, 100);
+        if (!listNumbers.includes(number)) {
+            listNumbers.push(number);
+        }
+    }
+};
 
-Ricorda: Quando premerai ok , dopo 30 secondi , dovrai inserire uno ad uno i numeri che avrai memorizzato
-allo scopo di indovinarne quanti più possibile`)
 
 
 // Creo un array dove conterò i 5 numeri inseriti dall'utente tramite prompt
@@ -61,6 +67,12 @@ const askNumbers = (userNumbers, listNumbers, rightNumbers) => {
 
 
 //dichiaro una funzione per effettuare un deelay sul chiedere all'utente i 5 numeri
+
+// Esecuzione 
+// richiamo la funzione per generare 5 numeri nell'array
+getRandomNumbers(listNumbers);
+
+// eseguo la funzione con deelay
 setTimeout(function() {
     askNumbers(userNumbers, listNumbers, rightNumbers);
 
@@ -70,13 +82,22 @@ setTimeout(function() {
         rightNumbers.push(message)
         console.log(
             `${message} 
-        I numeri erano:                     ${listNumbers}
-        I numeri che hai inserito sono      ${userNumbers}`)
+            I numeri erano:                     ${listNumbers}
+            I numeri che hai inserito sono      ${userNumbers}`)
     } else {
         console.log(
             `Hai indovinato ${rightNumbers.length} numeri, e sono i seguenti: ${rightNumbers} 
-         I numeri erano:                    ${listNumbers}
-         I numeri che hai inserito sono     ${userNumbers}`
+                I numeri erano:                    ${listNumbers}
+                I numeri che hai inserito sono     ${userNumbers}`
         );
     }
 }, 30000);
+
+
+// inserisco i numeri in un alert  riposizionato nel codice altrimenti non letto list number
+alert(`questi sono i numeri che dovrai memorizzare: 
+        
+        ${listNumbers}
+        
+        Ricorda: Quando premerai ok , dopo 30 secondi , dovrai inserire uno ad uno i numeri che avrai memorizzato
+        allo scopo di indovinarne quanti più possibile`)
