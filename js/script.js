@@ -51,13 +51,12 @@ const askNumbers = (userNumbers, listNumbers, rightNumbers) => {
             if (listNumbers.includes(number)) {
                 userNumbers.push(number);
                 rightNumbers.push(number);
-                i++;
             } else {
                 userNumbers.push(number);
                 // potrei inserire un array con i numeri sbagliati per poi fare il display
-                i++;
             }
         }
+        i++;
     }
 };
 
@@ -81,4 +80,4 @@ setTimeout(function() {
          I numeri che hai inserito sono ${userNumbers}`
         );
     }
-}, 30000);
+}, 500);
