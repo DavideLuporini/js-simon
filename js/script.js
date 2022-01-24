@@ -25,9 +25,6 @@ const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)
 // console.log(listNumbers)
 
 
-// sostituisco i 5 numeri dichiarati a mano con una funzione che genera numeri casuali , applicando un controllo per vedere se il numero è ripetuto
-// dichiaro l'array vuoto dove inserire i numeri 
-const listNumbers = []
 
 const getRandomNumbers = (listNumbers) => {
     while (listNumbers.length < 5) {
@@ -40,19 +37,12 @@ const getRandomNumbers = (listNumbers) => {
 
 
 
-// Creo un array dove conterò i 5 numeri inseriti dall'utente tramite prompt
-const userNumbers = [];
-
-// creo un array per i numeri giusti
-const rightNumbers = [];
-// // creo un array per i numeri sbagliati
-// const wrongNumbers = [];
 
 // funzione per chiedere i numeri 5 volte
 const askNumbers = (userNumbers, listNumbers, rightNumbers) => {
     let i = 0;
     while (userNumbers.length < listNumbers.length) {
-        const number = parseInt(prompt(`Inserisci il ${i + 1} numero: `));
+        const number = parseInt(prompt(`Inserisci il ${++i} numero: `));
         if (!userNumbers.includes(number)) {
             if (listNumbers.includes(number)) {
                 userNumbers.push(number);
@@ -65,8 +55,21 @@ const askNumbers = (userNumbers, listNumbers, rightNumbers) => {
     }
 };
 
-
+// elementi utili
 //dichiaro una funzione per effettuare un deelay sul chiedere all'utente i 5 numeri
+// Creo un array dove conterò i 5 numeri inseriti dall'utente tramite prompt
+const userNumbers = [];
+
+// creo un array per i numeri giusti
+const rightNumbers = [];
+// // creo un array per i numeri sbagliati
+// const wrongNumbers = [];
+
+// sostituisco i 5 numeri dichiarati a mano con una funzione che genera numeri casuali , applicando un controllo per vedere se il numero è ripetuto
+// dichiaro l'array vuoto dove inserire i numeri 
+const listNumbers = [];
+
+
 
 // Esecuzione 
 // richiamo la funzione per generare 5 numeri nell'array
@@ -91,7 +94,7 @@ setTimeout(function() {
                 I numeri che hai inserito sono     ${userNumbers}`
         );
     }
-}, 30000);
+}, 300);
 
 
 // inserisco i numeri in un alert  riposizionato nel codice altrimenti non letto list number
@@ -100,4 +103,4 @@ alert(`questi sono i numeri che dovrai memorizzare:
         ${listNumbers}
         
         Ricorda: Quando premerai ok , dopo 30 secondi , dovrai inserire uno ad uno i numeri che avrai memorizzato
-        allo scopo di indovinarne quanti più possibile`)
+        allo scopo di indovinarne quanti più possibile`);
