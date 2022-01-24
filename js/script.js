@@ -56,7 +56,6 @@ const askNumbers = (userNumbers, listNumbers, rightNumbers) => {
                 // potrei inserire un array con i numeri sbagliati per poi fare il display
             }
         }
-        i++;
     }
 };
 
