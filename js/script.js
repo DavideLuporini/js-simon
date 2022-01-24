@@ -70,13 +70,13 @@ setTimeout(function() {
         rightNumbers.push(message)
         console.log(
             `${message} 
-             I numeri erano:                ${listNumbers}
-             I numeri che hai inserito sono ${userNumbers}`)
+        I numeri erano:                     ${listNumbers}
+        I numeri che hai inserito sono      ${userNumbers}`)
     } else {
         console.log(
             `Hai indovinato ${rightNumbers.length} numeri, e sono i seguenti: ${rightNumbers} 
-         I numeri erano:                ${listNumbers}
-         I numeri che hai inserito sono ${userNumbers}`
+         I numeri erano:                    ${listNumbers}
+         I numeri che hai inserito sono     ${userNumbers}`
         );
     }
-}, 500);
+}, 30000);
